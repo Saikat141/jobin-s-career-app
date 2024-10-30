@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobins_app/templates/homepage.dart';
-import 'package:jobins_app/templates/homepage.dart';
-import 'package:jobins_app/templates/dashboards/recuitors_dash.dart';
+import 'package:jobins_app/templates/dashboards/candidate_dash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DashboardPage(),
+      home: const CandidateDashboard(),
     );
   }
 }
