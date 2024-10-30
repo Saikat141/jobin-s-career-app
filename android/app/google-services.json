@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435162568564",
+    "project_id": "jobins-e48cc",
+    "storage_bucket": "jobins-e48cc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435162568564:android:48b5a6655355c5468dbe21",
+        "android_client_info": {
+          "package_name": "com.jobins.app.android_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWLn6-cNDsTjm3Y9-mzuZlJeHsWMt66Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

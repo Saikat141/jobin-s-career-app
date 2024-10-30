@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jobins_app/templates/auth/candidate_auth.dart';
-import 'package:jobins_app/templates/auth/recuitor_auth.dart';
+
+import 'auth/candidate_auth.dart';
+import 'auth/recuitor_auth.dart';
+
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -78,10 +81,10 @@ class HomePage extends StatelessWidget {
                         onTap: () {
                           // Action for Recruiter
                           Navigator.push(context,
-                            MaterialPageRoute(
+                              MaterialPageRoute(
                                 builder:(context) => const RecruiterAuthScreen(),
 
-                            )
+                              )
                           );
                         },
                       ),

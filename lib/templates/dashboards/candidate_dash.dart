@@ -1,16 +1,28 @@
+import 'package:android_app/templates/auth/candidate_auth.dart';
+import 'package:android_app/templates/dashboards/candidate_cv.dart';
+import 'package:android_app/templates/dashboards/candidate_profile.dart';
 import 'package:flutter/material.dart';
+
+
+import 'candidate_job_status.dart';
+import 'candidate_seach_job.dart';
+
 
 
 
 class CandidateDashboard extends StatelessWidget {
+  final dynamic email_Id;
 
-  const CandidateDashboard({super.key});
+
+  const CandidateDashboard({super.key, required this.email_Id});
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("JOBIN's for Candidates",
+        title: const Text("JOBIN's Candidate's Dashboard",
           style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
         ),
 
@@ -23,11 +35,21 @@ class CandidateDashboard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text("User ID: $email_Id" ,
+              style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.red, fontSize: 23),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
             DashboardCard(
               title: "My Profile",
               subtitle: "Update your personal information and skills",
               icon: Icons.edit,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => CandidateProfileScreen(email: email_Id,)),
+                );
+              },
             ),
             const SizedBox(height: 16),
             DashboardCard(
@@ -36,7 +58,13 @@ class CandidateDashboard extends StatelessWidget {
               icon: Icons.search,
               additionalInfo: "Available Jobs",
               additionalCount: 42,
-              onTap: () {},
+              onTap: () {
+
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchJobsScreen(candidateEmail: email_Id,)),
+                );
+              },
             ),
             const SizedBox(height: 16),
             DashboardCard(
@@ -48,37 +76,58 @@ class CandidateDashboard extends StatelessWidget {
                 "Hired": 2,
                 "Rejected": 3,
               },
-              onTap: () {},
+              onTap: () {
+
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobStatusScreen(candidateEmail: email_Id,)),
+                );
+              },
+            ),
+
+            const SizedBox(height: 16),
+
+            DashboardCard(
+              title: "Manage Your CV",
+              subtitle: "Add your professional experience and skills",
+              icon: Icons.work,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => CandidateCVPage(candidateEmail: email_Id,)),
+                );
+
+              },
             ),
             const Spacer(),
             const LogoutButton(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.deepPurple,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.work_outline),
-            label: 'Jobs',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   backgroundColor: Colors.black,
+      //   selectedItemColor: Colors.deepPurple,
+      //   unselectedItemColor: Colors.grey,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.dashboard),
+      //       label: 'Dashboard',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.work_outline),
+      //       label: 'Jobs',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.history),
+      //       label: 'History',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //       label: 'Profile',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
@@ -195,7 +244,12 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const CandidateAuthScreen()),
+        );
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.red,
         shape: RoundedRectangleBorder(
@@ -206,8 +260,9 @@ class LogoutButton extends StatelessWidget {
       child: const Text(
         'Logout',
         style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white
         ),
       ),
     );
