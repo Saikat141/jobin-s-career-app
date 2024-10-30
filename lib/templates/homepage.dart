@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobins_app/templates/recuitor.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -75,6 +76,12 @@ class HomePage extends StatelessWidget {
                         iconColor: Colors.blue,
                         onTap: () {
                           // Action for Recruiter
+                          Navigator.push(context,
+                            MaterialPageRoute(
+                                builder:(context) => const RecruiterLoginScreen(),
+
+                            )
+                          );
                         },
                       ),
                       const SizedBox(width: 16),
