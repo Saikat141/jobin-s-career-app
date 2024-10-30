@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobins_app/templates/recuitor.dart';
+import 'package:jobins_app/templates/candidate_auth.dart';
+import 'package:jobins_app/templates/recuitor_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -78,7 +79,7 @@ class HomePage extends StatelessWidget {
                           // Action for Recruiter
                           Navigator.push(context,
                             MaterialPageRoute(
-                                builder:(context) => const RecruiterLoginScreen(),
+                                builder:(context) => const RecruiterAuthScreen(),
 
                             )
                           );
@@ -92,6 +93,12 @@ class HomePage extends StatelessWidget {
                         iconColor: Colors.teal,
                         onTap: () {
                           // Action for Candidate
+                          Navigator.push(context,
+                              MaterialPageRoute(
+                                builder:(context) => const CandidateAuthScreen(),
+
+                              )
+                          );
                         },
                       ),
                     ],
