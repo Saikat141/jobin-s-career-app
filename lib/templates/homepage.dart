@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobins_app/templates/candidate_auth.dart';
-import 'package:jobins_app/templates/recuitor_auth.dart';
+import 'package:jobins_app/templates/auth/candidate_auth.dart';
+import 'package:jobins_app/templates/auth/recuitor_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
