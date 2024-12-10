@@ -10,6 +10,7 @@ import 'candidate_seach_job.dart';
 
 
 
+
 class CandidateDashboard extends StatelessWidget {
   final dynamic email_Id;
 
